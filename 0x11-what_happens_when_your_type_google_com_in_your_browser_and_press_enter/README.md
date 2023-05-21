@@ -1,39 +1,23 @@
 # 0x11. What happens when you type google.com in your browser and press Enter
+Have you ever wondered what happens when you type a URL like “https://www.google.com" in your browser and press Enter? The process may seem seamless, but a series of intricate steps occur to deliver the desired webpage. In this blog post, we will unravel the journey of a web request, exploring concepts such as DNS requests, TCP/IP, firewalls, HTTPS/SSL, load-balancers, web servers, application servers, and databases.
 
-In this project, I am asked to write an article to explain all about the web 2.0 infrusture. Understanding this concept is very important for me as a fullstack software engineer.
+DNS Request: Upon pressing Enter, the first step involves a DNS (Domain Name System) request. The browser extracts the domain name ‘www.google.com' from the URL and sends a DNS query to a DNS resolver or the ISP’s DNS servers. The resolver then searches for the IP address associated with the domain name. If found, it is returned to the browser; otherwise, the resolver queries other DNS servers until a valid IP address is obtained.
+TCP/IP: With the IP address in hand, the browser initiates a TCP/IP (Transmission Control Protocol/Internet Protocol) connection. TCP breaks the data into packets and establishes a connection between the client (your browser) and the server (Google’s infrastructure). IP takes care of addressing and routing these packets over the internet.
 
-## Task 0
-<p>This question is a classic and still widely used interview question for many types of software engineering position. It is used to assess a candidate’s general knowledge of how the web stack works on top of the internet. One important guideline to begin answering this question is that you should ask your interviewer whether they would like you to focus in on one specific area of the workflow. For a front-end position they may want you to talk at length about how the DOM is rendering. For an SRE position they may want you to go into the load balancing mechanism.</p>
+Firewall: At this stage, the web request encounters firewalls, which act as a security barrier between the internet and the server. Firewalls examine the incoming traffic, filtering out potential threats and unauthorized access attempts. If the request passes through the firewall, it proceeds to the next step.
 
-<p>This question is a good test of whether you understand DNS. Many software engineering candidates struggle with this concept, so if you do well on this question, you are already way ahead of the curve. If you take this project seriously and write an excellent article, it may be something that will grab the attention of future employers.</p>
+HTTPS/SSL: To ensure secure communication, HTTPS (Hypertext Transfer Protocol Secure) is employed. HTTPS relies on SSL (Secure Sockets Layer) or its successor, TLS (Transport Layer Security), to encrypt the data transmitted between the client and server. This encryption protects sensitive information from being intercepted or tampered with by malicious actors.
 
-<p>Write a blog post explaining what happens when you type https://www.google.com in your browser and press Enter.</p>
+Load-Balancer: For popular websites like Google, a load-balancer distributes incoming requests across multiple servers to optimize performance and prevent overload. The load-balancer analyzes factors such as server availability, response time, and current load to determine the best server to handle each request. It ensures efficient utilization of resources and maintains the responsiveness of the website.
 
-Requirements, your post must cover:
+Web Server: The load-balancer forwards the request to an appropriate web server. The web server (e.g., Apache, Nginx) processes the request, retrieves the requested files or generates dynamic content based on the URL parameters, and sends back an HTTP response to the browser. It handles tasks such as serving static files, executing server-side scripts, and interacting with the application server.
 
-- DNS request
-- TCP/IP
-- Firewall
-- HTTPS/SSL
-- Load-balancer
-- Web server
-- Application server
-- Database
+Application Server: In cases where dynamic content is involved, the web server passes the request to an application server (e.g., Tomcat, Node.js). The application server executes the necessary business logic, interacts with databases, performs computations, and generates the final content to be sent back to the web server.
+Database: If the request requires data retrieval or storage, the application server communicates with one or more databases to fetch or update information. Databases like MySQL, PostgreSQL, or NoSQL variants store, organize, and retrieve structured or unstructured data as requested by the application server.
 
-I wrote [this](https://betascribbles.hashnode.dev/what-happens-when-you-type-googlecom-in-your-browser-and-press-enter) article.
+# Conclusion:
+The process of typing a URL and pressing Enter triggers a complex chain of events, involving DNS requests, TCP/IP connections, firewalls, HTTPS/SSL encryption, load-balancers, web servers, application servers, and databases. Each component plays a crucial role in delivering the desired web content efficiently and securely. Understanding this journey empowers us to appreciate the intricate workings of the internet and the robust infrastructure supporting it.
 
-## Task 2
-<p>Add a schema to your blog post illustrating the flow of the request created when you type https://www.google.com in your browser and press Enter.</p>
 
-The diagram should show:
 
-- DNS resolution
-- that the request hitting server IP on the appropriate port
-- that the traffic is encrypted
-- that the traffic goes through a firewall
-- that the request is distributed via a load balancer
-- that the web server answers the request by serving a web page
-- that the application server generates the web page
-- that the application server request data from the database
 
-The image diagram I made is [here](https://github.com/betascribbles/alx-system_engineering-devops/blob/main/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/1-what_happen_when_diagram.jpeg)
